@@ -1,0 +1,15 @@
+# Cryptography Outputs
+*.enc
+*.bin
+*.qkey
+
+# Python Caches & Environments
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+
+# Local Test Data
+data/*
+!data/.keep

@@ -1,0 +1,5 @@
+qrandom
+requests
+streamlit
+matplotlib
+numpy
