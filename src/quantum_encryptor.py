@@ -7,7 +7,7 @@ class QuantumEncryptor:
         # 64 mb threshold to process massive data files concurrently
         self.CHUNK_SIZE = 64 * 1024 * 1024
 
-    def execute_xor_ciper(self, payload_bytes: bytearray, key_bytes: bytearray) -> bytearray:
+    def execute_xor_cipher(self, payload_bytes: bytearray, key_bytes: bytearray) -> bytearray:
         #Utilizes multi-threading to bypass Python's Global Interpreter Lock (GIL)
 
         if len(payload_bytes) != len(key_bytes):
@@ -54,11 +54,12 @@ class QuantumEncryptor:
 
         return salt, bytes(wrapped_key)
 
-    def unwrap_quatum_key(self, salt: bytes, wrapped_key: bytes, candidate_passphrase:str) -> bytearray:
+    def unwrap_quantum_key(self, salt: bytes, wrapped_key: bytes, candidate_passphrase:str) -> bytearray:
         #de-drives the kek 
         candidate_kek = hashlib.pbkdf2_hmac(
             hash_name= "sha256",
             password= candidate_passphrase.encode('utf-8'),
+            salt= salt,
             iterations= 100000,
             dklen= 32
         )
