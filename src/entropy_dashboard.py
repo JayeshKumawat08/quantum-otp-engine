@@ -117,14 +117,14 @@ def render_dashboard():
                 with dl_col1:
                     st.download_button(
                         label="⬇️ Download Ciphertext (.enc)",
-                        data=ciphertext,
+                        data=bytes(ciphertext),  # <--- Added bytes() cast here
                         file_name=f"{os.path.splitext(uploaded_file.name)[0]}.enc",
                         mime="application/octet-stream"
                     )
                 with dl_col2:
                     st.download_button(
                         label="⬇️ Download Vaulted Key (.qkey)",
-                        data=salt + vaulted_key,
+                        data=bytes(salt + vaulted_key),  # <--- Added bytes() cast here
                         file_name=f"{os.path.splitext(uploaded_file.name)[0]}.qkey",
                         mime="application/octet-stream"
                     )
