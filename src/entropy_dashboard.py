@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.quantum_api import fetch_quantum_entropy
 from src.quantum_encryptor import QuantumEncryptor
 
-# --- MATHEMATICAL & VISUALIZATION FUNCTIONS ---
+# MATHEMATICAL & VISUALIZATION FUNCTIONS
 
 def calculate_shannon_entropy(data: bytes | bytearray) -> float:
     """Calculates the mathematical Shannon Entropy of the data (Max: 8.0)."""
@@ -49,7 +49,7 @@ def plot_bit_balance(data: bytes | bytearray, title: str):
     ax.set_title(title, fontsize=10, fontweight='bold')
     return fig
 
-# --- STREAMLIT DASHBOARD UI ---
+# STREAMLIT DASHBOARD UI
 
 def render_dashboard():
     st.set_page_config(page_title="Quantum OTP Vault", layout="wide")
